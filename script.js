@@ -131,6 +131,9 @@ function handleclick(e){
         addtoFav(parentId);
         target.style.color="red";
     }
+    else if(target.id=='favourite'){
+        window.location.href="./favorites.html";
+    }
 
 
 }
