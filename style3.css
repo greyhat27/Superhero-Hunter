@@ -71,7 +71,7 @@ button:hover{
     box-shadow: 2px 2px 10px 0px wheat;
 }
 
-@media only screen and (width <=425px) {
+@media only screen and (width <=430px) {
     a{
         font-size: 10px;
     }
