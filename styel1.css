@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: wheat;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+body{
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;*/
+    overflow:scroll;
+    /* background: linear-gradient(45deg, rgb(23 22 22), rgb(4 4 34)); */
+    background: url('./resources/wp6767377-best-superhero-for-desktop-wallpapers.jpg');
+    background-repeat:repeat-y;
+    background-position: center center;
+    background-size: cover;
+}
+#container{
+    position: relative;
+    text-align: center;
+    width: 90%;
+    /* height: 90%; */
+    margin: auto;
+    /* border: 2px solid red; */
+    padding-top: 30px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center; */
+}
+a{
+    position: absolute;
+    top: 2%;
+    left: 4%;
+    display: inline-block;
+    text-decoration: none;
+    z-index: 1;
+}
+#heroCard{
+
+    /* width: %; */
+    /* height: 60%; */
+    margin: auto;
+    margin-top: 5%;
+    text-align: center;
+    /* background-color: black; */
+    /* opacity: 0.7; */
+    /* border: 2px solid wheat; */
+}
+.element{
+    border: 1px solid wheat;
+    height: 30px;
+    width: 216px;
+    text-align: center;
+    /* opacity: 0.8; */
+    margin: 10px;
+}
+#heroImg{
+    border: 2px solid wheat;
+}
+#details{
+    display: inline-block;
+}
+#heroContainer{
+    width: 60%;
+    margin: auto;
+}
+#heroDetails{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+button{
+    margin-top: 2%;
+    height: 40px;
+    width: 300px;
+    font-size: 15px;
+    background-color: black;
+    border: 1px solid wheat;
+}
+button:hover{
+    cursor: pointer;
+    color: black;
+    background-color: wheat;
+}
+#modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+#modal-content{
+    position: absolute;
+    top: 30%;
+    left: 33.5%;
+    height: 250px;
+    width: 500px;
+    /* position: relative;
+    top: 30%; */
+    /* left: 33.5%; */
+    /* width: 500px; */
+    /* width: 30%; 
+    height: 250px; */
+    background-color: rgba(0, 0, 0, 1);
+    text-align: center;
+    padding-top: 70px;
+}
+h1{
+    color: wheat;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+}
+@media only screen and (max-width: 750px){
+    #heroDetails{
+        flex-direction: column;
+    }
+    h1{
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    h1{
+        font-size: 0.9em;
+        font-weight: 300;
+    }
+    a div{
+        font-size: 12px;
+    }
+    #modal{
+        text-align: center;
+    }
+    #modal-content{
+        width: 300px;
+        height: 125px;
+        left: 12.5%;
+        top: 43%;
+        font-size: 13px;
+        padding: 10px;
+    }
+    #ok{
+        width: 250px;
+        font-size: 10px;
+    }
+}
