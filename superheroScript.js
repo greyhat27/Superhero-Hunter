@@ -1,59 +1,38 @@
+// variable declarations
 const heroCard=document.querySelector("#heroCard");
 
 const heroId=JSON.parse(localStorage.getItem('heroId'));
-
-console.log(heroId);
-
 
 const favButton = document.getElementById("addFav");
 
 const modal=document.querySelector("#modal");
 
+//event listener on add to favourites button
 favButton.addEventListener("click", function(e) {
   e.stopPropagation();
   let fav = JSON.parse(localStorage.getItem("favourite")) || [];
   let ifExist=true;
   for(i=0;i<fav.length;i++){
-    // console.log("fav id",fav[i][0].id);
     if(fav[i][0].id===heroId[0].id){
         ifExist=false;
     }
   }
-  console.log(ifExist);
   if(ifExist){
     fav.push(heroId);
     localStorage.setItem("favourite", JSON.stringify(fav));
     alert("Added to favourites");   
   }
   else{
-    // alert("Alredy added to favourites");
     modal.style.display="block";
   }
 })
+
+//on click ok button modal display set to none
 modal.addEventListener('click',function(){
   modal.style.display="none";
 })
 
-// async function fetchData(){
-
-//     const response=  await fetch(url);
-//     // console.log("response",response.data);
-//     const data= await response.json();
-//     // console.log("data",data)
-//     return data.data.results;
-
-// }
-
-// async function arr(){
-//     let data;
-//     data=await fetchData();
-//     console.log("data",data);
-// }
-
-// arr();
-
-
-
+// if heroId present then append in the list and render
 if(heroId){
     const div=document.createElement('div');
     div.innerHTML=

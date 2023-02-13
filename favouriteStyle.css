@@ -1,3 +1,4 @@
+/* Css file for styling favorites.html */
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -13,10 +14,8 @@ body{
     background-repeat: repeat-y;
     background-position: center;
     background-size: cover;
-    /* overflow: hidden; */
 }
 #container{
-    /* position: relative; */
     width: 90%;
     margin: auto;
 }
@@ -67,7 +66,6 @@ button:hover{
     background-color: wheat;
 }
 #heroImg{
-    /* box-shadow: 2px 2px 2px 10px 20px wheat; */
     box-shadow: 2px 2px 10px 0px wheat;
 }
 

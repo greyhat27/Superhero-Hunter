@@ -9,38 +9,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/00c4406ed8.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="./resources/3xhumed-Mega-Games-Pack-35-Spiderman-3-1.32.png" type="image/x-icon">
-<!-- <link rel="stylesheet" href="https://kit.fontawesome.com/00c4406ed8.css" crossorigin="anonymous"> -->
     <title>Superhero</title>
     <link rel="stylesheet" href="style.css">    
 </head>
 <body>
-    <!-- <div id="loader">Loading...</div> -->
+    <!-- live backgroung using video tag -->
     <video class="bg-video" autoplay loop muted>
         <source src="./resources/spiderman-tom-holland-comics-4k-live-wallpaper.mp4" type="video/mp4">
     </video>
+    <!-- container for superhero list rendered after api call  -->
     <div id="container">  
         <h1>Superhero Hunter</h1>
         <div id="search-sec">
-            <input type="text" id="search-bar" placeholder="Type Superhero's name (example: Batman)">
+            <input type="text" id="search-bar" placeholder="Type Superhero (example: Spider-Man)">
         </div>
         <div id="loader">Loading Superhero's...</div>
-        <!-- <video class="bg-video" autoplay loop muted>
-            <source src="./resources/spiderman-tom-holland-comics-4k-live-wallpaper.mp4" type="video/mp4">
-        </video> -->
-        <ul id="list"></ul>
+        <div id="notExist">Superhero doesn't exist...</div>
+        <ul id="list">
+
+        </ul>  
     </div>
+    <!-- modal box for indicating superhero exist in favorites  -->
     <div id="modal">
         <div id="modal-content">
             <p>Superhero already present in favourites</p>
             <button id="ok">Ok</button>
         </div>
     </div>
+    <!-- to redirect on favourites page -->
     <a href="./favorites.html"><div id="favourite">Favourites</div></a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
     <script src="script.js"></script>
-    <!-- <script src="./script2.js"></script> -->
-    <!-- <script language="JavaScript" src="md5.js"></script> -->
-    <!-- <script src="./script2.js"></script> -->
-    <!-- <img src="./resources/heart-svgrepo-com.svg" alt=""> -->
 </body>
 </html>

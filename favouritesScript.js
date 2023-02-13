@@ -1,11 +1,11 @@
+//variable declarations
 const listItem=document.querySelector("#list");
 
 let favourite;
 
 const item=document.querySelector(".listItem");
 
-// console.log("fav", favourite)
-
+//function to append list item(superhero) to favourites list
 function addListItem(item){
     const li=document.createElement('li');
     li.innerHTML=
@@ -17,21 +17,20 @@ function addListItem(item){
     listItem.append(li);
 }
 
+//function to get list it is calling addListItem function
 function getList(){
     listItem.innerHTML='';
     favourite=JSON.parse(localStorage.getItem('favourite'));
     for(let i=0;i<favourite.length;i++){
         addListItem(favourite[i][0]);
-        // console.log("favourite",favourite[i][0]);
 }
 }
-getList();
+getList();// function  call to get favourite list
 
+//callback function of event listener to handle click event
 function handleClick(e){
     const target=e.target;
-    // e.stopPropagation();
     if(target.id=='removeBtn'){
-        // e.stopPropagation();
         const removeId=target.dataset.id
         favourite=JSON.parse(localStorage.getItem('favourite'));
         listItem.innerHTML='';
@@ -47,8 +46,6 @@ function handleClick(e){
         localStorage.setItem('favourite', JSON.stringify(favourite));
     }
     else if(target.id=='heroImg'){
-        // e.stopPropagation()
-        console.log("inside if");
         favourite=JSON.parse(localStorage.getItem('favourite'));
         for(var i=0;i<favourite.length;i++){
             if(favourite[i][0].id==target.dataset.id){
@@ -60,6 +57,7 @@ function handleClick(e){
     }
 }
 
+// eventListener
 document.addEventListener('click', handleClick);
 
 

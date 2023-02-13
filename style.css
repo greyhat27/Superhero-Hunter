@@ -1,14 +1,8 @@
+/* Css file for styling index.html */
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    /* color: white; */
 }
-/* body{
-    background: url('./resources/spiderman-tom-holland-comics-4k-live-wallpaper.mp4');
-    background-repeat: repeat-y;
-    background-position: center center;
-    background-size: cover;
-} */
 #container{
     position: absolute;
     top: 10%;
@@ -51,10 +45,6 @@ h1{
     border: 2px solid wheat;
     opacity: 0.7;
 }
-/* a:link, a:active, a:visited{
-    text-decoration: none;
-    color: black;
-} */
 #favourite:hover{
     cursor: pointer;
     color: wheat;
@@ -70,18 +60,10 @@ h1{
     opacity: 0.8;
     z-index: -1;
 }
-#loader{
+#loader, #notExist{
     display: none;
-    /* display: none;
-    position:absolute;
-    top: 0;
-    left: 0; */
     text-align: center;
-    /* height: 100vh;
-    width: 100vw; */
     font-size: 30px;
-    /* padding-top: 48vh;
-    z-index: 2; */
 }
 #list{
     list-style: none;
@@ -96,7 +78,6 @@ h1{
     height: 300px;
     width: 300px;
     text-shadow: 20px 20px 50px white;
-    /* border: 2px solid black; */
 }
 #list li:hover{
     cursor: pointer;
@@ -119,15 +100,6 @@ h1{
     font-weight: 700;
     margin-top: 20px;
 }
-/* .icon{
-    position: absolute;
-    font-weight: 600;
-    height: 25px;
-    width: 25px;
-    top: 10px;
-    right: 5px;
-    border: 1px solid red;
-} */
 i {
     position: absolute;
     font-weight: 600;
@@ -155,11 +127,8 @@ i:hover{
 #modal-content{
     position: relative;
     top: 30%;
-    /* left: 33.5%; */
-    /* width: 500px; */
     width: 30%; 
     height: 250px;
-    /* height: 25%; */
     margin: auto;
     background-color: rgba(0, 0, 0, 1);
     text-align: center;
@@ -182,11 +151,6 @@ i:hover{
 }
 
 @media only screen and (width <= 1024px) {
-    /* #list{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    } */
     #search-bar{
         width: 70%;
         height: 35px;
@@ -227,7 +191,6 @@ i:hover{
         align-items: center;
         padding: 10px;
         margin: 5px;
-        /* border: 2px solid red; */
     }
     .superHeroImg{
         width: 80px;
@@ -249,7 +212,7 @@ i:hover{
     #serch-sec{
         height: 30px;
     }
-    #loader{
+    #loader, #notExist{
         font-size: 15px;
     }
     #container{
@@ -262,7 +225,6 @@ i:hover{
     #modal-content{
         width: 300px;
         height: 125px;
-        /* left: 15%; */
         top: 43%;
         font-size: 13px;
         padding: 10px;

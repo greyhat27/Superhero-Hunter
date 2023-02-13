@@ -1,43 +1,35 @@
-// var MD5 = require("crypto-js/md5"); 
-// console.log(MD5("text to hash").toString());
-
-// const md5 = require("crypto-js/md5");
-// import md5 from 'blueimp-md5';
-
-
-
+//varialbles
 const searchInput=document.querySelector("#search-bar");
 
 const hero=document.querySelector(".redirect");
 
-let superheroData=[];
+const publicKey = '11fdeac12c7c55621d7121737fadfa75'; //public key
+ 
+const privateKey = 'b5c0842c43d41b4cc4d06a1c66bd625b59ae9117'; //private key
 
-const publicKey = '11fdeac12c7c55621d7121737fadfa75';
+const ts = Date.now(); //timestamp
 
-const privateKey = 'b5c0842c43d41b4cc4d06a1c66bd625b59ae9117';
+const hash = md5(ts + privateKey + publicKey); //crating hash
 
-const ts = Date.now();
-
-const hash = md5(ts + privateKey + publicKey);
-
-const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=`;
+const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=`; //url for api call
 
 const favourite=document.querySelector(".fav");
 
 const heartIcons = document.querySelectorAll(".fa-solid.fa-heart");
 
-let updatedUrl ="";
-
-let favouriteArray=[];
+const listItem=document.querySelector("#list");
 
 const modal=document.querySelector("#modal");
 
 const okBtn=document.querySelector("#ok");
 
-okBtn.addEventListener('click', function(){
-    modal.style.display="none";
-})
+let updatedUrl ="";
 
+let favouriteArray=[];
+
+let superheroData=[];
+
+//created localStorage for heroId and favourite
 if(localStorage.getItem('heroId')===null){
     localStorage.setItem('heroId', JSON.stringify([]));
 }
@@ -45,23 +37,20 @@ if(localStorage.getItem('favourite')===null){
     localStorage.setItem('favourite', JSON.stringify([]));
 }
 
+//function to updated url
 function update(key){
     updatedUrl=url+key;
-    console.log("updated", updatedUrl);
     getDataArray();
 }
 
-const listItem=document.querySelector("#list");
-
+//API call 
 async function fetchData(){
     const response=  await fetch(updatedUrl);
-    // console.log("response",response.data);
     const data= await response.json();
-    // console.log("data",data)
     return data.data.results;
 }
 
-
+//fetching data into array in json
 async function getDataArray() {
     superheroData=[];
     document.getElementById("loader").style.display = "block";
@@ -69,10 +58,15 @@ async function getDataArray() {
     data = await fetchData();
     document.getElementById("loader").style.display = "none";
     superheroData=data;
-    console.log("SuperHero",superheroData);
-    getList(superheroData);
+    if(superheroData.length===0){
+        document.getElementById("notExist").style.display="block";
+    }else{
+        document.getElementById("notExist").style.display="none";
+    }
+    getList(superheroData); //calling function to append listitems(superheros)
   }
 
+  //function to add superhero into favourites
 function addtoFav(parentId){
     const newObj=superheroData.filter(val => val.id==parentId);
     favouriteArray=JSON.parse(localStorage.getItem('favourite'));
@@ -80,7 +74,6 @@ function addtoFav(parentId){
     for(let i=0; i<favouriteArray.length;i++){
         if(favouriteArray[i][0].id==newObj[0].id){
             ifExist=false;
-            // alert("Already Added to favourites");
             modal.style.display="block";
         }
     }
@@ -92,13 +85,13 @@ function addtoFav(parentId){
 
 }
 
+//appeding superhero into the list
 function getList(superheroData){
     listItem.innerHTML='';
     for(i=0;i<superheroData.length;i++){
         if(superheroData[i].thumbnail.path+""=== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available'){
             continue;
         }
-        // console.log("id",superheroData[i].id)
         const li=document.createElement('li');
         li.innerHTML=
         `<div id="${superheroData[i].id}" class="imgContainer"><img id="${superheroData[i].id}" class="superHeroImg" src="${superheroData[i].thumbnail.path+"/portrait_medium.jpg"}" alt=""></div>
@@ -108,6 +101,7 @@ function getList(superheroData){
     }
 }
 
+//callback function to handle keyup event
 function handlekeyup(e){
     const target=e.target;
     if(target.value===''){
@@ -117,13 +111,12 @@ function handlekeyup(e){
     update(target.value);
 }
 
+//callback function to handle click event
 function handleclick(e){
     const target=e.target;
     if(target.className=='superHeroImg' || target.className=='imgContainer' || target.className=='superHeroName'){
-        console.log(superheroData);
         const newObj= superheroData.filter(val => val.id==target.id)
         localStorage.setItem('heroId', JSON.stringify(newObj));
-        console.log("id",JSON.parse(localStorage.getItem('heroId')));
         window.location.href="./superHero.html";
     }
     else if(target.id=='heart-icon'){
@@ -138,7 +131,11 @@ function handleclick(e){
 
 }
 
+//EvenListeners
 searchInput.addEventListener('keyup', handlekeyup);
 
 document.addEventListener('click', handleclick);
-  
+
+okBtn.addEventListener('click', function(){
+    modal.style.display="none";
+})

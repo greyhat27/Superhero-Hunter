@@ -1,3 +1,4 @@
+/* Css file for styling superHero.html */
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -9,13 +10,7 @@ html, body {
     padding: 0;
   }
 body{
-    /* position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;*/
     overflow:scroll;
-    /* background: linear-gradient(45deg, rgb(23 22 22), rgb(4 4 34)); */
     background: url('./resources/wp6767377-best-superhero-for-desktop-wallpapers.jpg');
     background-repeat:repeat-y;
     background-position: center center;
@@ -25,14 +20,8 @@ body{
     position: relative;
     text-align: center;
     width: 90%;
-    /* height: 90%; */
     margin: auto;
-    /* border: 2px solid red; */
     padding-top: 30px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center; */
 }
 a{
     position: absolute;
@@ -43,22 +32,15 @@ a{
     z-index: 1;
 }
 #heroCard{
-
-    /* width: %; */
-    /* height: 60%; */
     margin: auto;
     margin-top: 5%;
     text-align: center;
-    /* background-color: black; */
-    /* opacity: 0.7; */
-    /* border: 2px solid wheat; */
 }
 .element{
     border: 1px solid wheat;
     height: 30px;
     width: 216px;
     text-align: center;
-    /* opacity: 0.8; */
     margin: 10px;
 }
 #heroImg{
@@ -105,12 +87,6 @@ button:hover{
     left: 33.5%;
     height: 250px;
     width: 500px;
-    /* position: relative;
-    top: 30%; */
-    /* left: 33.5%; */
-    /* width: 500px; */
-    /* width: 30%; 
-    height: 250px; */
     background-color: rgba(0, 0, 0, 1);
     text-align: center;
     padding-top: 70px;
